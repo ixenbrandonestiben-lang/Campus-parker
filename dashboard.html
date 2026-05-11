@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <h1>CAMPUS <span>PARKING</span></h1>
+        </div>
+
+        <nav>
+            <a href="">inicio</a>
+            <a href="">tipos de vehiculos</a>
+            <a href="">servisios</a>
+            <a href="">perfil</a>
+            <a href="">cerrar sesion</a>
+        </nav>
+
+    </aside>
+    <main class="dashboard">
+        <div>
+            <h2>Bienvenido, admin </h2>
+            <p>Resumen general del parqueadero</p>
+        </div>
+        <header>
+            <section class="cards">
+                <article class="card">
+                    <h3>Vehiculos activos</h3>
+                    <h1>15</h1>
+                    <p>En este momento</p>
+                </article>
+
+                <article class="card">
+                    <h3>Slots disponibles</h3>
+                    <h1>25</h1>
+                    <p>Espacios libres</p>
+                </article>
+
+                <article class="card">
+                    <h3>Ingreseos del dia</h3>
+                    <h1>Q 5000</h1>
+                    <p>total generado hoy</p>
+                </article>
+
+                <article class="card">
+                    <h3>Servisios hoy</h3>
+                    <h1>18</h1>
+                    <p>Total de servisios</p>
+                </article>
+
+            </section>
+
+            <section class="tabla-contenedor">
+                <div class="tabla-header">
+                    <h2>Vehiculos dentro del parqueadero</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>placa</th>
+                            <th>Tipo</th>
+                            <th>hora entrada</th>
+                            <th>slot</th>
+                            <th>estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ABC123</td>
+                            <td>Automovil</td>
+                            <td>08:00 am</td>
+                            <td>5</td>
+                            <td>
+                                <span class="estado-ocupado">
+                                    Ocupado
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </header>
+
+    </main>
+
+</body>
+</html>
