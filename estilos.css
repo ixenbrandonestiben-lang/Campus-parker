@@ -25,7 +25,6 @@ html, body{
 .Admin{
     display: grid;
     place-items: center;
-    min-height: ;
 }
 .contenedor-admin{
 
