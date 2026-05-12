@@ -1,0 +1,81 @@
+body {
+    font-family: 'poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+.servicios{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+h2{
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+}
+.registro-servicio{
+    background: rgba(255, 255, 255, 08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 255, 255, 0.438);
+
+}
+
+.lista-servicios {
+    background: rgba(255, 255, 255, 08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.425);
+
+
+}
+
+#form-servicios {
+    display: grid;
+    gap: 15px;
+    
+}
+
+#form-servicios input{
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    }
+
+#form-servicios select{
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    }
+
+#form-servicios button
+{
+padding: 14px;
+border: none;
+border-radius: 10px;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,tr{
+    padding: 12px;
+    text-align: center;
+}
+th{
+    background: #1f2937;
+    color: white;
+    border-radius: 10px;
+    
+}

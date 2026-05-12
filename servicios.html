@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>servicios</title>
+    <link rel="stylesheet" href="servicios.css">
+</head>
+<body>
+    <section class="servicios">
+        <div class="registro-servicio">
+            <h2>Registrar servicios</h2>
+            <form id="form-servicios">
+                <input type="text" placeholder="placa" id="placa">
+                <select id="tipo">
+                    <option >Seleccione tipo</option>
+                </select>
+                <input type="date" id="fecha">
+                <input type= "time" id="horaEntrada">
+                <input type="number" placeholder="slot" id="slot">
+            </form>
+        </div>
+
+        <div class="lista-servicios">
+            <h2>Vehiculos en parqueo</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Tipo</th>
+                        <th>entrada</th>
+                        <th>Slot</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-servicios"></tbody>
+            </table>
+        </div>
+    </section>    
+</body>
+</html>
