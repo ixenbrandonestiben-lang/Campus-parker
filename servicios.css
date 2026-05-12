@@ -1,10 +1,72 @@
+* {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'poppins', sans-serif;
     background: #0f172a;
     color: white;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    
+    grid-template-columns: 250px 1fr;
+    min-height: 100%;
+}
+
+.sidebar {
+    background: #111827;
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255, 255, 255, .1);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+}
+
+.logo span {
+    color: #3b82f6;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+sidebar nav a {
+    text-decoration: none;
+    color: #d1d5db;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 3s;
+}
+
+.siderbar nav a:hober {
+    background: #2563eb;
+    color: white;
+}
+
+.dashboard {
+    padding: 30px;
+    display: grid;
+    gap: 30px;
+}
+
+@media(max-width:900px){
+
+    body{
+
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+
+        display:none;
+    }
+
 }
 .servicios{
     display: grid;
@@ -78,4 +140,25 @@ th{
     color: white;
     border-radius: 10px;
     
+} 
+main{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    
+}
+.slot{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 101px;
+    
+}
+.span-slot{
+    background-color: #2563eb;
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+    text-align: center;
+    font-size: 2em;
 }
