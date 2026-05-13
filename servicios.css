@@ -8,9 +8,8 @@ body {
     font-family: 'poppins', sans-serif;
     background: #0f172a;
     color: white;
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    min-height: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .sidebar {
@@ -146,6 +145,9 @@ main{
     grid-template-columns: repeat(5, 1fr);
     
 }
+.slots{
+    background-color: rgba(0, 255, 255, 0.178);
+}
 .slot{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -155,6 +157,7 @@ main{
     
 }
 .span-slot{
+    border-radius: 10px;
     background-color: #2563eb;
     width: 100%;
     height: auto;
