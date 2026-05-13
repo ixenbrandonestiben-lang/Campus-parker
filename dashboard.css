@@ -87,7 +87,11 @@ sidebar nav a {
 
     color:#94a3b8;
 }
-
+.saludo{
+    background-color: #111827;
+    text-align: center;
+    place-items: center;
+}
 .tabla-contenedor{
 
     background:#1e293b;
