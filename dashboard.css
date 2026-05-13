@@ -36,7 +36,7 @@ body {
     gap: 15px;
 }
 
-sidebar nav a {
+.sidebar nav a {
     text-decoration: none;
     color: #d1d5db;
     padding: 15px;
