@@ -34,9 +34,19 @@
 
                 </select>
                 <input type="date" id="fecha">
+                
                 <input type="number" placeholder="slot" id="slot" min="1" max="20" step="1">
+                
                 <button type="button" id="btn-agregar" onclick="agregarVehiculo()">Registrar</button>
-                <button type="button" id="btn-quitar" onclick="retirarVehiculo()  ">Retirar Vehículo</button>
+                
+                <button type="button" onclick="retirarVehiculo()">Retirar Vehículo</button>
+                
+                <button type="button" onclick="mostrarTabla()">Actualizar Tabla</button>
+
+                <button type="button" onclick="eliminarTodosVehiculos()">Eliminar Todos</button>
+
+            
+                
             </form>
         </div>
 

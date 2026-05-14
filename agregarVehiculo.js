@@ -62,78 +62,115 @@ function mostrarTabla() {
 
     tabla.innerHTML = ""
     parqueados.forEach((vehiculo, index) => {
-
-        tabla.innerHTML += `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${vehiculo.placa}</td>
-                <td>${vehiculo.tipo}</td>
-                <td>${vehiculo.fecha}</td>
-                <td>${vehiculo.horaingresada}</td>
-                <td>${vehiculo.slot}</td>
-            </tr>
-        `;
+    
+    tabla.innerHTML += `
+    <tr>
+    <td>${index + 1}</td>
+    <td>${vehiculo.placa}</td>
+    <td>${vehiculo.tipo}</td>
+    <td>${vehiculo.fecha}</td>
+    <td>${vehiculo.horaingresada}</td>
+    <td>${vehiculo.slot}</td>
+    </tr>
+    `;
     })
-}
-
-function retirarVehiculo() {
-    const placa = prompt("Ingrese la placa del vehículo a retirar:");
-
-    const index = parqueados.findIndex(vehiculo => vehiculo.placa === placa);
-
-    if (index !== -1) {
-        const momentoSalida = new Date();
-        const horaSalida = momentoSalida.toLocaleTimeString('es-GT', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-
-        });
-        
-        const [hora, minutos] = convertirHoraAmPmANumeros(vehiculo.horaingresada)
-        const momentoingreso = new Date(vehiculo.fecha);
-        momentoingreso.setHours(hora, minutos, 0,0);
-
-        const deferenciaMiliSegundos = horaingresada - horaSalida;
-        let horasCobrar = Math.ceil(deferenciaMiliSegundos / (1000*60*60)) 
-
-        if(horasCobrar <= 0) horasCobrar = 1;
-        const tarifa = 10
-        const totalPagar = horasCobrar*tarifa
-
-        alert(
-            `======cAMPUS===PARKING======
-            Placa: ${vehiculo.placa}
-            slot: ${vehiculo.slot}
-            -----------------------------------
-            Ingreso: ${vehiculo.horaingresada}
-            salida: ${horaSalida} 
-            Tiempo Total: ${horasCobrar} hora(s)
-            ------------------------------------
-            Monto total:${totalPagar}
-            `
-        )
-        parqueados.splice(index, 1);
-
-        localStorage.setItem("parqueados", JSON.stringify(parqueados));
-
-        mostrarTabla();
-
-        actualizarSlots();
-
-    } else {
-        alert("Vehículo no encontrado.");
     }
-}
-
-mostrarTabla();
-
-function convertirHoraAmPmANumeros(){
-    const [tiempo, modificador] = horaStr.split('')
-    let [horas, minutos] = tiempo.split(':')
+    
+    // 1. Buscar vehículo por placa
+    function buscarVehiculoPorPlaca(placa) {
+    return parqueados.findIndex(vehiculo => vehiculo.placa === placa);
+    }
+    
+    // 2. Calcular horas de parqueo
+    function calcularHoras(vehiculo) {
+    const momentoSalida = new Date();
+    const horaSalida = momentoSalida.toLocaleTimeString('es-GT', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+    });
+    
+    // Convertir hora ingresada a números
+    const [hora, minutos] = convertirHoraAmPmANumeros(vehiculo.horaingresada);
+    
+    const momentoIngreso = new Date(vehiculo.fecha);
+    momentoIngreso.setHours(hora, minutos, 0, 0);
+    
+    const diferenciaMs = momentoSalida - momentoIngreso;
+    let horasCobrar = Math.ceil(diferenciaMs / (1000 * 60 * 60));
+    if (horasCobrar <= 0) horasCobrar = 1;
+    
+    return { horasCobrar, horaSalida };
+    }
+    
+    // 3. Calcular total a pagar
+    function calcularPago(horas) {
+    const tarifa = 10;
+    return horas * tarifa;
+    }
+    
+    // 4. Mostrar ticket
+    function mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar) {
+    alert(
+    `====== CAMPUS PARKING ======
+    Placa: ${vehiculo.placa}
+    Slot: ${vehiculo.slot}
+    -----------------------------------
+    Ingreso: ${vehiculo.horaingresada}
+    Salida: ${horaSalida} 
+    Tiempo Total: ${horasCobrar} hora(s)
+    ------------------------------------
+    Monto total: Q${totalPagar}
+    `
+    );
+    }
+    
+    // 5. Eliminar vehículo
+    function eliminarVehiculo(index) {
+    parqueados.splice(index, 1);
+    localStorage.setItem("parqueados", JSON.stringify(parqueados));
+    mostrarTabla();
+    actualizarSlots();
+    }
+    
+    // Función principal que une todo
+    function retirarVehiculo() {
+    const placa = prompt("Ingrese la placa del vehículo a retirar:");
+    const index = buscarVehiculoPorPlaca(placa);
+    
+    if (index !== -1) {
+    const vehiculo = parqueados[index];
+    const { horasCobrar, horaSalida } = calcularHoras(vehiculo);
+    const totalPagar = calcularPago(horasCobrar);
+    
+    mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar);
+    eliminarVehiculo(index);
+    } else {
+    alert("Vehículo no encontrado.");
+    }
+    }
+    
+    // Conversión de hora AM/PM a números
+    function convertirHoraAmPmANumeros(horaStr) {
+    const [tiempo, modificador] = horaStr.split(' ');
+    let [horas, minutos] = tiempo.split(':');
     horas = parseInt(horas, 10);
-
+    
     if (modificador === 'PM' && horas < 12) horas += 12;
     if (modificador === 'AM' && horas === 12) horas = 0;
-    return [horas, parseInt(minutos, 10)]
-}
+    
+    return [horas, parseInt(minutos, 10)];
+    }
+    
+    function eliminarTodosVehiculos() {
+
+        parqueados = []
+        localStorege.setItem("parqueados", JSON.stringify(parqueados))
+
+        const tabla = document.getElementById("tabla-servicios")
+
+        tabla.innerHTML = ""
+
+        alert("Todos los vehículos han sido eliminados.")
+    }
+    
