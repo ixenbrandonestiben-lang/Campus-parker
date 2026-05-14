@@ -162,15 +162,5 @@ function mostrarTabla() {
     return [horas, parseInt(minutos, 10)];
     }
     
-    function eliminarTodosVehiculos() {
 
-        parqueados = []
-        localStorege.setItem("parqueados", JSON.stringify(parqueados))
-
-        const tabla = document.getElementById("tabla-servicios")
-
-        tabla.innerHTML = ""
-
-        alert("Todos los vehículos han sido eliminados.")
-    }
     
