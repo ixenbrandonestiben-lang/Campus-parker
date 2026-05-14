@@ -67,32 +67,6 @@ function mostrarTabla() {
     })
 }
 
-function actualizarSlots() {
-
-    let espacios = document.querySelectorAll(".slots");
-
-    espacios.forEach((espacio, index) => {
-
-        let numeroSlot = index + 1;
-
-        let ocupado = parqueados.find(vehiculo => vehiculo.slot == numeroSlot);
-
-        let placaelemento = espacio.querySelector(".placa");
-        let estadoelemento = espacio.querySelector(".slot-status");
-
-        if (ocupado) {
-            placaelemento.textContent = ocupado.placa;
-            estadoelemento.textContent = "Ocupado";
-            espacio.style.backgroundColor = "red";
-        } else {
-            placaelemento.textContent = "---";
-            estadoelemento.textContent = "Disponible";
-            espacio.style.backgroundColor = "green";
-        }
-    })
-}
-
-
 function retirarVehiculo() {
     const placa = prompt("Ingrese la placa del vehículo a retirar:");
 
