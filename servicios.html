@@ -35,9 +35,10 @@
                 </select>
                 <input type="date" id="fecha">
                 <input type="time" id="horaEntrada">
-                <input type="number" placeholder="slot" id="slot">
+                <input type="number" placeholder="slot" id="slot" maxlength="20" minlength="1" required>
 
-                <button type="button" id="btn-agregar">Registrar</button>
+                <button type="button" id="btn-agregar" onclick="agregarVehiculo()">Registrar</button>
+                <button type="button" id="btn-quitar" onclick="retirarVehiculo()  ">Retirar Vehículo</button>
             </form>
         </div>
 
@@ -52,7 +53,7 @@
                         <th>Tipo</th>
                         <th>fecha</th>
                         <th>Hora entrada</th>
-                        <th>Slot</th>
+                        <th class="slots">Slot</th>
                         
                     </tr>
                 </thead>
@@ -62,21 +63,6 @@
 
     </section>
 
-    <section class="slots">
-            <h2>Slots disponibles</h2>
-            <div class="slot">
-                <p>Slot 1</p>
-                <p>Slot 2</p>
-                <p>Slot 3</p>
-                <p>Slot 4</p>
-                <p>Slot 5</p>
-                <p>Slot 6</p>
-                <p>Slot 7</p>
-                <p>Slot 8</p>
-                <p>Slot 9</p>
-                <p>Slot 10</p>
-            </div>
-    </section>
     
     <script src="agregarVehiculo.js"></script>
 
