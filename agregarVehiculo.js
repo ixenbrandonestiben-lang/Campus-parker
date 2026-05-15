@@ -30,12 +30,12 @@ function agregarVehiculo() {
 
     const VehiculoExistente = parqueados.some(vehiculo => vehiculo.placa === placa && vehiculo.tipo === tipo);
     const vehiculoNueva = parqueados.some(vehiculo => vehiculo.placa === placa && vehiculo.tipo !== tipo)
-    if (VehiculoExistente){
+    if (VehiculoExistente) {
 
         alert("Revise bien la placa y el tipo de vehiculo, porque ya hay un vehiculo registrado con esta placa!!!")
         return;
 
-    }else if(vehiculoNueva){
+    } else if (vehiculoNueva) {
         alert("guardado correctamente")
     }
 
@@ -72,8 +72,8 @@ function mostrarTabla() {
 
     tabla.innerHTML = ""
     parqueados.forEach((vehiculo, index) => {
-    
-    tabla.innerHTML += `
+
+        tabla.innerHTML += `
     <tr>
     <td>${index + 1}</td>
     <td>${vehiculo.placa}</td>
@@ -84,96 +84,128 @@ function mostrarTabla() {
     </tr>
     `;
     })
-    }
-    
-    // 1. Buscar vehículo por placa
-    function buscarVehiculoPorPlaca(placa, tipo) {
+}
+
+// 1. Buscar vehículo por placa
+function buscarVehiculoPorPlaca(placa, tipo) {
     return parqueados.findIndex(vehiculo => vehiculo.placa === placa && vehiculo.tipo === tipo);
-    }
+}
 
 
-    // 2. Calcular horas de parqueo
-    function calcularHoras(vehiculo) {
+// 2. Calcular horas de parqueo
+function calcularHoras(vehiculo) {
     const momentoSalida = new Date();
     const horaSalida = momentoSalida.toLocaleTimeString('es-GT', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
     });
-    
+
     // Convertir hora ingresada a números
     const [hora, minutos] = convertirHoraAmPmANumeros(vehiculo.horaingresada);
-    
+
     const momentoIngreso = new Date(vehiculo.fecha);
     momentoIngreso.setHours(hora, minutos, 0, 0);
-    
+
     const diferenciaMs = momentoSalida - momentoIngreso;
     let horasCobrar = Math.ceil(diferenciaMs / (1000 * 60 * 60));
     if (horasCobrar <= 0) horasCobrar = 1;
-    
+
     return { horasCobrar, horaSalida };
-    }
-    
-    // 3. Calcular total a pagar
-    function calcularPago(horas) {
+}
+
+// 3. Calcular total a pagar
+function calcularPago(horas) {
     const tarifa = 10;
     return horas * tarifa;
-    }
+}
+function mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar){
+
+    document.getElementById("tk-placa").textContent = vehiculo.placa
+    document.getElementById("tk-tipo").textContent = vehiculo.tipo
+    document.getElementById("tk-slot").textContent = vehiculo.slot
+    document.getElementById("tk-ingreso").textContent = vehiculo.horaingresada
+    document.getElementById("tk-salida").textContent = horaSalida
+    document.getElementById("tk-tiempo").textContent = horasCobrar
+    document.getElementById("tk-total").textContent = totalPagar
+
+    const modal = document.getElementById("modal-ticket");
+    modal.showModal();
+}
+
+function imprimirTicket(){
+    // document.getElementById("modal-ticket").closest();
+    alert("Enviando factura a impresion...");
+    window.print();
+
+    const modal = document.getElementById("modal-ticket")
+    modal.closest();
+
+}
+
+function cerrarTicket() {
     
-    // 4. Mostrar ticket
-    function mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar) {
-    alert(
-    `====== CAMPUS PARKING ======
-    Placa: ${vehiculo.placa}
-    tipo: ${vehiculo.tipo}
-    Slot: ${vehiculo.slot}
-    -----------------------------------
-    Ingreso: ${vehiculo.horaingresada}
-    Salida: ${horaSalida} 
-    Tiempo Total: ${horasCobrar} hora(s)
-    ------------------------------------
-    Monto total: Q${totalPagar}
-    `
-    );
-    }
+    alert("Ticket registrado en el sistema (Sin impresión).");
     
-    // 5. Eliminar vehículo
-    function eliminarVehiculo(index) {
+    // 2. Cierra el modal por completo
+    const modal = document.getElementById('modal-ticket');
+    modal.close();
+  }
+
+// // 4. Mostrar ticket
+// function mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar) {
+//     confirm(
+//         `====== CAMPUS PARKING ======
+//     Placa: ${vehiculo.placa}
+//     tipo: ${vehiculo.tipo}
+//     Slot: ${vehiculo.slot}
+//     -----------------------------------
+//     Ingreso: ${vehiculo.horaingresada}
+//     Salida: ${horaSalida} 
+//     Tiempo Total: ${horasCobrar} hora(s)
+//     ------------------------------------
+//     Monto total: Q${totalPagar}
+//     `
+//     );
+// }
+
+// 5. Eliminar vehículo
+function eliminarVehiculo(index) {
     parqueados.splice(index, 1);
     localStorage.setItem("parqueados", JSON.stringify(parqueados));
     mostrarTabla();
     actualizarSlots();
-    }
-    
-    // Función principal que une todo
-    function retirarVehiculo() {
+}
+
+// Función principal que une todo
+function retirarVehiculo() {
     const placa = prompt("Ingrese la placa del vehículo a retirar:");
-    const tipo =prompt("Ingrese el tipo de vehiculo a retirar")
-    const index = buscarVehiculoPorPlaca(placa,tipo);
-    
+    const tipo = prompt("Ingrese el tipo de vehiculo a retirar")
+    const index = buscarVehiculoPorPlaca(placa, tipo);
+
     if (index !== -1) {
-    const vehiculo = parqueados[index];
-    const { horasCobrar, horaSalida } = calcularHoras(vehiculo);
-    const totalPagar = calcularPago(horasCobrar);
-    
-    mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar);
-    eliminarVehiculo(index);
+        const vehiculo = parqueados[index];
+        const { horasCobrar, horaSalida } = calcularHoras(vehiculo);
+        const totalPagar = calcularPago(horasCobrar);
+
+        mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar);
+        eliminarVehiculo(index);
     } else {
-    alert("Vehículo no encontrado.");
+        alert("Vehículo no encontrado.");
     }
-    }
-    
-    // Conversión de hora AM/PM a números
-    function convertirHoraAmPmANumeros(horaStr) {
+}
+
+// Conversión de hora AM/PM a números
+function convertirHoraAmPmANumeros(horaStr) {
     const [tiempo, modificador] = horaStr.split(' ');
     let [horas, minutos] = tiempo.split(':');
     horas = parseInt(horas, 10);
-    
+
     if (modificador === 'PM' && horas < 12) horas += 12;
     if (modificador === 'AM' && horas === 12) horas = 0;
-    
-    return [horas, parseInt(minutos, 10)];
-    }
-    
 
-    
+    return [horas, parseInt(minutos, 10)];
+}
+
+
+

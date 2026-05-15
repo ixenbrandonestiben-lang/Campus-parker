@@ -34,19 +34,19 @@
 
                 </select>
                 <input type="date" id="fecha">
-                
+
                 <input type="number" placeholder="slot" id="slot" min="1" max="20" step="1">
-                
+
                 <button type="button" id="btn-agregar" onclick="agregarVehiculo()">Registrar</button>
-                
+
                 <button type="button" onclick="retirarVehiculo()">Retirar Vehículo</button>
-                
+
                 <button type="button" onclick="mostrarTabla()">Actualizar Tabla</button>
 
-               
 
-            
-                
+
+
+
             </form>
         </div>
 
@@ -62,7 +62,7 @@
                         <th>fecha</th>
                         <th>Hora entrada</th>
                         <th class="slots">Slot</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody id="tabla-servicios"></tbody>
@@ -70,8 +70,43 @@
         </div>
 
     </section>
+    
+    <dialog id="modal-ticket"
+        style="border: none; border: radius 8px; padding: 20px; box-shadow: 0 4px rgba(0, 0, 0, 0.3); width: 320px; font-family: monospace">
+        <div style="text-align:center;">
+            <h3 style="margin: 0 0 10px 0;"> ======CAMPUS PARKING======</h3>
+        </div>
 
-</div>
+        <div>
+            <div>Placa<strong id="tk-placa"></strong></div>
+            <div>Tipo:<strong id="tk-tipo"></strong></div>
+            <div>Slot:</slot><strong id="tk-slot"></strong></div>
+            <div style="border-top: 1px dashed #000; margin: 10px 0;"></div>
+            <div>Ingreso:<span id="tk-ingreso"></span></div>
+            <div>Salida:<span id="tk-salida"></span></div>
+            <div>Tiempo:<span id="tk-tiempo"></span></div>
+            <div style="border-top: 1px dashed #000; margin: 10px 0;"></div>
+            <div style="font-size: 1.2em;"><strong>Monto total: Q <span id="tk-total"></span></strong></div>
+        </div>
+
+        <p style="text-align: center; margin-bottom: 15px; font-family: Arial, sans-serif; font-size: 0.9em;">¿Deseas
+            imprimir tu factura?</p>
+
+        <div style="display: flex; gap:10px">
+            <button onclick="imprimirTicket()"
+                style="flex: 1; padding: 10px; background: #2ecc71; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Sí,
+                Imprimir</button>
+            <button onclick="cerrarTicket()"
+                style="flex: 1; padding: 10px; background: #e74c3c; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">No
+                Imprimir</button>
+        </div>
+    </dialog>
+
+    <style>
+        #modal-ticket::backdrop{
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
     <script src="agregarVehiculo.js"></script>
 
 </body>
