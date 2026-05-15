@@ -206,6 +206,3 @@ function convertirHoraAmPmANumeros(horaStr) {
 
     return [horas, parseInt(minutos, 10)];
 }
-
-
-
