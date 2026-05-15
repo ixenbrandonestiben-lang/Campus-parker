@@ -1,7 +1,7 @@
 let parqueados = JSON.parse(localStorage.getItem("parqueados")) || []
 const seleccionarOpcion = document.getElementById("tipo")
 const tabla = document.getElementById("tabla-servicios")
-const btnhora = document.getElementById("imprimirh")
+
 
 let tipos = ["moto", "carro", "camioneta", "bus"]
 
@@ -28,6 +28,16 @@ function agregarVehiculo() {
         return;
     }
 
+    const VehiculoExistente = parqueados.some(vehiculo => vehiculo.placa === placa && vehiculo.tipo === tipo);
+    const vehiculoNueva = parqueados.some(vehiculo => vehiculo.placa === placa && vehiculo.tipo !== tipo)
+    if (VehiculoExistente){
+
+        alert("Revise bien la placa y el tipo de vehiculo, porque ya hay un vehiculo registrado con esta placa!!!")
+        return;
+
+    }else if(vehiculoNueva){
+        alert("guardado correctamente")
+    }
 
     const existeSlot = parqueados.some(vehiculo => vehiculo.slot === slot);
     if (existeSlot) {
@@ -77,10 +87,11 @@ function mostrarTabla() {
     }
     
     // 1. Buscar vehículo por placa
-    function buscarVehiculoPorPlaca(placa) {
-    return parqueados.findIndex(vehiculo => vehiculo.placa === placa);
+    function buscarVehiculoPorPlaca(placa, tipo) {
+    return parqueados.findIndex(vehiculo => vehiculo.placa === placa && vehiculo.tipo === tipo);
     }
-    
+
+
     // 2. Calcular horas de parqueo
     function calcularHoras(vehiculo) {
     const momentoSalida = new Date();
@@ -114,6 +125,7 @@ function mostrarTabla() {
     alert(
     `====== CAMPUS PARKING ======
     Placa: ${vehiculo.placa}
+    tipo: ${vehiculo.tipo}
     Slot: ${vehiculo.slot}
     -----------------------------------
     Ingreso: ${vehiculo.horaingresada}
@@ -136,7 +148,8 @@ function mostrarTabla() {
     // Función principal que une todo
     function retirarVehiculo() {
     const placa = prompt("Ingrese la placa del vehículo a retirar:");
-    const index = buscarVehiculoPorPlaca(placa);
+    const tipo =prompt("Ingrese el tipo de vehiculo a retirar")
+    const index = buscarVehiculoPorPlaca(placa,tipo);
     
     if (index !== -1) {
     const vehiculo = parqueados[index];
