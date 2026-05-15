@@ -1,7 +1,12 @@
 let parqueados = JSON.parse(localStorage.getItem("parqueados")) || []
 const seleccionarOpcion = document.getElementById("tipo")
 const tabla = document.getElementById("tabla-servicios")
+const salir = document.getElementById("logout")
 
+salir.addEventListener("click", function () {
+    confirm("¿Estás seguro de que deseas cerrar sesión?");
+    window.location.href = "index.html";
+})
 
 let tipos = ["moto", "carro", "camioneta", "bus"]
 

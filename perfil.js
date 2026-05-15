@@ -2,6 +2,13 @@ const fotoPerfil = document.getElementById('imagen');
 const nombrePerfil = document.getElementById('nombre');
 const emailPerfil = document.getElementById('email');
 const telefonoPerfil = document.getElementById('telefono');
+const salir = document.getElementById("logout")
+
+salir.addEventListener("click", function () {
+    confirm("¿Estás seguro de que deseas cerrar sesión?");
+    window.location.href = "index.html";
+})
+
 
 let perfilUsuario = {
     fotoPerfil : "img/logo.jpg",
