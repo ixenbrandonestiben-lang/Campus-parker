@@ -1,125 +1,136 @@
-html, body{
-     padding: 0%;
-     margin: 0%;
-
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    height: 100%;
 }
-.fondo{
+
+/* Fondo */
+.fondo {
     background-image: url(img/fondo.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: fixed;
-    font-family:sans-serif;
-    
-    width:100%;
-    height:100vh;
-
+    width: 100%;
+    height: 100vh;
     filter: blur(3px);
-
     transform: scale(1.1);
-
-    z-index:-1;
+    z-index: -1;
 }
 
-.Admin{
-    display: grid;
-    place-items: center;
-}
-.contenedor-admin{
-
-    width:90%;
-    max-width:400px;
-    padding:50px 50px 50px 50px;
-    border-radius:20px;
-    background: rgba(0,0,0,.4);
-    color:white;
-    margin:auto;
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:40px 30px;
-    display:grid;
-    gap:20px;
-    box-shadow:
-    0 0 30px rgba(0,0,0,.3);
-}
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-
-/* TITULO */
-.contenedor-admin h1{
-
-    text-align:center;
-
-    font-size:2rem;
-}
-
-/* TEXTO */
-.contenedor-admin p{
-
-    text-align:center;
-
-    color:#d1d5db;
-}
-
-.contenedor-admin input{
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#374151;
-
-    color:white;
-
-    outline:none;
-}
-
-/* BOTON */
-.contenedor-admin button{
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#2563eb;
-
-    color:white;
-
-    font-size:1rem;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.contenedor-admin button:hover{
-
-    background:#1d4ed8;
-}
-.apartadoLogo{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+/* Contenedor principal */
+.Admin {
+    display: flex;
     justify-content: center;
-
+    align-items: center;
+    height: 100vh;
 }
-.apartadoLogo img{
+
+.contenedor-admin {
+    width: 90%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.4);
+    color: white;
+    backdrop-filter: blur(10px);
+    display: grid;
+    gap: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+
+/* Título */
+.contenedor-admin h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Texto */
+.contenedor-admin p {
+    text-align: center;
+    color: #d1d5db;
+}
+
+/* Inputs */
+.contenedor-admin input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #374151;
+    color: white;
+    outline: none;
+}
+
+/* Botón */
+.contenedor-admin button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor-admin button:hover {
+    background: #1d4ed8;
+}
+
+/* Logo */
+.apartadoLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* ✅ Para que se acomode en pantallas pequeñas */
+}
+
+.apartadoLogo img {
     width: 20vh;
     height: 20vh;
     border-radius: 10%;
+    object-fit: cover;
+}
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contenedor-admin {
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    .contenedor-admin h1 {
+        font-size: 1.5rem;
+    }
+
+    .apartadoLogo img {
+        width: 15vh;
+        height: 15vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-admin {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .contenedor-admin h1 {
+        font-size: 1.2rem;
+    }
+
+    .contenedor-admin input,
+    .contenedor-admin button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .apartadoLogo img {
+        width: 12vh;
+        height: 12vh;
+    }
 }

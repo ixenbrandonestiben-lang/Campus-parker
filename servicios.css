@@ -1,178 +1,186 @@
-* {
-    margin: 0%;
-    padding: 0;
-    box-sizing: border-box;
+body {
+font-family: 'Poppins', sans-serif;
+background: #0f172a;
+color: white;
+display: grid;
+min-height: 100vh;
+gap: 0;
 }
 
-body {
-    font-family: 'poppins', sans-serif;
-    background: #0f172a;
-    color: white;
-    display: flex;
-    flex-direction: row;
-}
+
 
 .sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
     background: #111827;
     padding: 30px 20px;
-    border-right: 1px solid rgba(255, 255, 255, .1);
-    display: flex;
-    flex-direction: column;
 
+}
+
+
+.sidebar.active {
+    left: 0; /* visible */
+}
+
+.menu-toggle {
+    color: white;
+    font-size: 24px;
+    background: none;
+    border: 1px solid white;
+    cursor: pointer;
+    margin: 10px;
+    height: 40px;
+}
+
+/* Sidebar */
+.sidebar {
 }
 
 .logo h1 {
-    font-size: 1.8rem;
+font-size: 1.8rem;
 }
 
 .logo span {
-    color: #3b82f6;
+color: #3b82f6;
 }
 
 .sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+display: flex;
+flex-direction: column;
+gap: 15px;
 }
 
 .sidebar nav a {
-    text-decoration: none;
-    color: #d1d5db;
-    padding: 15px;
-    border-radius: 12px;
-    transition: 3s;
+text-decoration: none;
+color: #d1d5db;
+padding: 15px;
+border-radius: 12px;
+transition: background 0.2s ease, color 0.2s ease;
 }
 
-.siderbar nav a:hober {
-    background: #2563eb;
-    color: white;
+.sidebar nav a:hover {
+background: #2563eb;
+color: white;
 }
+
 
 .dashboard {
-    padding: 30px;
-    display: grid;
-    gap: 30px;
+padding: 30px;
+display: grid;
+gap: 30px;
 }
 
-@media(max-width:900px){
 
-    body{
-
-        grid-template-columns:1fr;
-    }
-
-    .sidebar{
-
-        display:none;
-    }
-
-}
-.servicios{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    padding: 20px;
-    
+.servicios {
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 20px;
+padding: 20px;
 }
 
-h2{
-    font-size: 2rem;
-    color: black;
-    text-align: center;
-}
-.registro-servicio{
-    background: rgba(255, 255, 255, 08);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 10px 10px 10px 10px rgba(0, 255, 255, 0.438);
-
+h2 {
+font-size: 2rem;
+color: white;
+text-align: center;
 }
 
+ Tarjetas /
+.registro-servicio,
 .lista-servicios {
-    background: rgba(255, 255, 255, 08);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.425);
-
-
+background: rgba(255, 255, 255, 0.08);
+width: auto;
+backdrop-filter: blur(10px);
+border-radius: 20px;
+box-shadow: 10px 10px 20px rgba(0, 255, 255, 0.12);
 }
 
 #form-servicios {
-    display: grid;
-    gap: 15px;
-    
+display: grid;
+gap: 15px;
 }
 
-#form-servicios input{
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    }
-
-#form-servicios select{
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    }
-
-#form-servicios button
-{
+#form-servicios input,
+#form-servicios select,
+#form-servicios button {
 padding: 14px;
 border: none;
 border-radius: 10px;
 }
 
-tbody{
-    background-color: rgb(0, 0, 0);
-    width: 100%;
-    height: auto;  
-}
-tbody td{
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1.2em;
+table {
+width: 100%;
+border-collapse: collapse;
 }
 
-table{
-    width: 100%;
-    border-collapse: collapse;
+thead th {
+padding: 12px;
+text-align: center;
+background: #1f2937;
+color: white;
+border-radius: 10px;
 }
 
-th,tr{
-    padding: 12px;
-    text-align: center;
-}
-th{
-    background: #1f2937;
-    color: white;
-    border-radius: 10px;
-    
-} 
-
-.slots{
-    background-color: #031b4f;
-    border-radius: 20px;
-    padding: 20px;
-    display: grid;
-    gap: 20px;
-}
-.slots h2{
-    color: white;
-    text-align: center;
-    text-align: center;
-}
-.slot{
-    width: 100%;
-    height: auto;
-    color: aliceblue;
-    background-color: aqua;
-    gap: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 20px;
-    border-radius: 20px;
-
+tbody {
+background-color: transparent;
+width: 100%;
 }
 
+tbody td {
+border-radius: 10px;
+padding: 10px;
+font-size: 1.05rem;
+text-align: center;
+}
+
+
+.slots {
+background-color: #031b4f;
+border-radius: 20px;
+padding: 20px;
+display: grid;
+gap: 20px;
+}
+
+.slot {
+width: 100%;
+color: #031b4f;
+background-color: aqua;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+padding: 20px;
+border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+
+ Hacer que todo el contenido principal sea una sola columna /
+.sidebar {
+display: none; / ocultar sidebar en móviles; si quieres que aparezca, cámbialo a block */
+}
+
+
+.servicios {
+display: grid;
+grid-template-columns: 1fr; /* UNA sola columna */
+gap: 16px;
+padding: 12px;
+}
+
+.slot {
+grid-template-columns: 1fr; /* en móvil, cada slot en columna */
+}
+
+#form-servicios {
+gap: 12px;
+}
+
+h2 {
+font-size: 1.6rem;
+}
+
+}

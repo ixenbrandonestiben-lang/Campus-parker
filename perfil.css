@@ -1,81 +1,159 @@
 * {
-    margin: 0%;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Layout base */
 body {
-    font-family: 'poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #0f172a;
     color: white;
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: repeat(1, 1fr);
     min-height: 100vh;
 }
 
+
+
+
 .sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
     background: #111827;
     padding: 30px 20px;
-    border-right: 1px solid rgba(255, 255, 255, .1);
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+
+}
+
+
+.sidebar.active {
+    left: 0; /* visible */
+}
+
+.menu-toggle {
+    color: white;
+    font-size: 24px;
+    background: none;
+    border: 1px solid white;
+    cursor: pointer;
+    margin: 10px;
+    height: 40px;
+}
+
+/* Sidebar */
+.sidebar {
 }
 
 .logo h1 {
-    font-size: 1.8rem;
+font-size: 1.8rem;
 }
 
 .logo span {
-    color: #3b82f6;
+color: #3b82f6;
 }
 
 .sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+display: flex;
+flex-direction: column;
+gap: 15px;
 }
 
 .sidebar nav a {
-    text-decoration: none;
-    color: #d1d5db;
-    padding: 15px;
-    border-radius: 12px;
-    transition: 3s;
+text-decoration: none;
+color: #d1d5db;
+padding: 15px;
+border-radius: 12px;
+transition: background 0.2s ease, color 0.2s ease;
 }
 
-.siderbar nav a:hober {
-    background: #2563eb;
-    color: white;
+.sidebar nav a:hover {
+background: #2563eb;
+color: white;
 }
-.perfil{
+
+
+.dashboard {
+padding: 30px;
+display: grid;
+gap: 30px;
+}
+/* PERFIL */
+.perfil {
     background-color: #092561;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    align-items: center;
-    justify-content: center;
     place-items: center;
-    
+    padding: 20px;
 }
 
-.perfil div{
+.perfil div {
     background-color: rgba(128, 255, 0, 0.247);
-    align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     max-width: 600px;
-    min-width: auto;height: 100%;
-
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
 }
 
-
-#imagen{
+#imagen {
     border-radius: 50%;
-    box-shadow: 5px 5px 5px 5px slategray;
-
-}
-h2, p{
-    background-color: #0f172a;
+    box-shadow: 5px 5px 5px slategray;
+    max-width: 150px;
     width: 100%;
     height: auto;
+}
+
+h2, p {
+    background-color: #0f172a;
+    width: 100%;
     border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+
+ Hacer que todo el contenido principal sea una sola columna /
+.sidebar {
+display: none;
+}
+
+}
+@media (max-width: 768px) {
+    .perfil div {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    #imagen {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .perfil div {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    #imagen {
+        max-width: 100px;
+    }
+
+    h2, p {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+#btn-editar{
+    background-color: #0f172a;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    
 }

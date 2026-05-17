@@ -211,3 +211,18 @@ function convertirHoraAmPmANumeros(horaStr) {
 
     return [horas, parseInt(minutos, 10)];
 }
+function menutoggle() {
+    const toggleBtn = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
+
+document.querySelectorAll('#sidebar nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+    });
+});
+}
+

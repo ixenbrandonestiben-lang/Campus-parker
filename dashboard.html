@@ -7,20 +7,25 @@
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <aside class="sidebar">
-        <div class="logo">
-            <h1>CAMPUS <span>PARKING</span></h1>
-        </div>
+    <header>
+        <button onclick="menutoggle()" class="menu-toggle" id="menu-toggle">
+    ☰
+</button>
+    </header>
 
-        <nav>
-            <a href="">inicio</a>
-            <a href="dashboard.html">Resumen del dia</a>
-            <a href="servicios.html">agregar vehiculo al parqueo</a>
-            <a href="perfil.html">perfil</a>
-            <a href="index.html">cerrar sesion</a>
-        </nav>
 
-    </aside>
+<aside class="sidebar" id="sidebar">
+    <div class="logo">
+        <h1>CAMPUS <span>PARKING</span></h1>
+    </div>
+
+    <nav>
+        <a href="dashboard.html">Resumen del dia</a>
+        <a href="servicios.html">agregar vehiculo al parqueo</a>
+        <a href="perfil.html">perfil</a>
+        <a href="index.html">cerrar sesion</a>
+    </nav>
+</aside>
     <main class="dashboard">
         <div class="saludo">
             <h2>Bienvenido, admin </h2>
