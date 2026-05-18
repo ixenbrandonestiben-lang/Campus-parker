@@ -3,23 +3,6 @@ const seleccionarOpcion = document.getElementById("tipo")
 const tabla = document.getElementById("tabla-servicios")
 const salir = document.getElementById("logout")
 
-salir.addEventListener("click", function () {
-    confirm("¿Estás seguro de que deseas cerrar sesión?");
-    window.location.href = "index.html";
-})
-
-let tipos = ["moto", "carro", "camioneta", "bus"]
-
-tipos.forEach(tipo => {
-
-    let option = document.createElement("option")
-
-    option.textContent = tipo
-
-    seleccionarOpcion.appendChild(option)
-
-})
-
 function agregarVehiculo() {
 
     const placa = document.getElementById("placa").value;
@@ -51,6 +34,7 @@ function agregarVehiculo() {
     }
 
 
+
     const horaActual = new Date().toLocaleTimeString('es-GT', {
         hour: '2-digit',
         minute: '2-digit',
@@ -62,7 +46,7 @@ function agregarVehiculo() {
         placa,
         tipo,
         fecha,
-        horaingresada: horaActual, // Guarda la hora automática aquí
+        horaingresada : horaActual, // Guarda la hora automática aquí
         slot
     };
 
@@ -138,6 +122,9 @@ function mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar){
     modal.showModal();
 }
 
+function agregarTicketLocalstorege() {
+    localStorage.setIt("mostrarTicket")
+}
 function imprimirTicket(){
     // document.getElementById("modal-ticket").closest();
     alert("Enviando factura a impresion...");

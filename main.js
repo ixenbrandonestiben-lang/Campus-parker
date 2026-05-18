@@ -2,7 +2,8 @@ let datoscliente =
 {
     "nombre": "admin",
     "correo": "admin123@gmail.com",
-    "contraseña": "admin123..."
+    "contraseña": "admin123...",
+    "contacto": "4647-8945"
 }
 
 
