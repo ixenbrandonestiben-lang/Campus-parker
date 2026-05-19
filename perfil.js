@@ -1,118 +1,41 @@
-const datosPerfil = JSON.parse(localStorage.getItem('perfilUsuario'))
+function cargarDoatosPerfil() {
 
-document.getElementById("pf-nombre").textContent = datosPerfil.nombre;
-document.getElementById("pf-correo").textContent = datosPerfil.correo0;
-document.getElementById("pf-telefono").textContent = datosPerfil.telefono;
+    const datosPerfil = JSON.parse(localStorage.getItem('datos'))
 
-const perfil = document.getAnimations("ContenedorDialog")
-show.show.perfil()
+    document.getElementById("pf-nombre").textContent = datosPerfil.nombre;
+    document.getElementById("pf-correo").textContent = datosPerfil.correo;
+    document.getElementById("pf-telefono").textContent = datosPerfil.contacto;
 
+}
 
-// function cargarPerfil() { 
-//     let perfilGuardado = JSON.parse(localStorage.getItem('perfilUsuario'));
-//     if (perfilGuardado) {
-//         fotoPerfil.src = perfilGuardado.fotoPerfil;
-//         nombrePerfil.textContent = perfilGuardado.nombrePerfil;
-//         emailPerfil.textContent = perfilGuardado.emailPerfil;
-//         telefonoPerfil.textContent = perfilGuardado.telefonoPerfil;
-//     }   
-// }
+cargarDoatosPerfil()
 
-// cargarPerfil();
+function editarPerfil() {
 
+    let nuevoNombre = prompt("Ingrese su nuevo nombre:", getElementById ("pf-nombre").textContent);
+    let nuevoEmail = prompt("Ingrese su nuevo email:",getElementById ("pf-correo").textContent);
+    let nuevoTelefono = prompt("Ingrese su nuevo teléfono:", getElementById("pf-telefono").textContent);
 
+    if (nuevoNombre !== null && nuevoEmail !== null && nuevoTelefono !== null)
 
-// function
+    document.getElementById("pf-nombre").textContent = nuevoNombre
+    document.getElementById("pf-correo").textContent = nuevoEmail
+    document.getElementById("pf-telefono").textContent = nuevoTelefono
 
-// const nuevoNombre = prompt("Ingrese el su nuevo nombre...")
-// const nuevoEmail = prompt("Ingrese su nuevo correo...")
-// const nuevoTelefono = prompt("ingresa el nuevo numero de elefono...")
+    const datosActualizados = {
+        nombre: nuevoNombre,
+        correo: nuevoEmail,
+        contacto: nuevoTelefono
+    }
 
+   
+}
 
-// let nombre = infoPerfil.nombre
+localStorage.setItem('datos', JSON.stringify(datosActualizados));
 
-// let correo = infoPerfil.correo
+alert("datos actualizados correctamente...")
 
-// let numero = infoPerfil.telefono
-
-// localStorage.setItem("datos", JSON.stringify(infoPerfil))
-
-
-// const tabla = document.getElementById("tr-body")
-
-// tabla.innerHTML = `
-//         <td>${infoPerfil.nombre = nuevoNombre} </td>
-//         <td>${infoPerfil.correo = nuevoEmail} </td>
-//         <td>${infoPerfil.telefono = nuevoTelefono} </td>
-//         <td><button id="btn-editar" onclick="editarPerfil()">Editar perfil</button>
-// </td>
-
-//         `
-
-// function mostrarTabla() {
-
-//     tabla.innerHTML = ""
-//     infoPerfil.forEach((nombre,correo,telefono) => {
-
-//         tabla.innerHTML += `
-//     <tr>
-//     <td>${infoPerfil.nuevoNombre}</td>
-//     <td>${infoPerfil.nuevoEmail}</td>
-//     <td>${vehiculo.fecha}</td>
-//     <td>${vehiculo.horaingresada}</td>
-//     <td>${vehiculo.slot}</td>
-//     </tr>
-//     `;
-//     })
-// }
-
-
-// function cargarPerfil() { 
-//     let perfilGuardado = JSON.parse(localStorage.getItem('perfilUsuario'));
-//     if (perfilGuardado) {
-//         fotoPerfil.src = perfilGuardado.fotoPerfil;
-//         nombrePerfil.textContent = perfilGuardado.nombrePerfil;
-//         emailPerfil.textContent = perfilGuardado.emailPerfil;
-//         telefonoPerfil.textContent = perfilGuardado.telefonoPerfil;
-//     }   
-// }
-
-// cargarPerfil();
-
-// function editarPerfil() {
-
-//     let nuevoNombre = prompt("Ingrese su nuevo nombre:");
-
-//     let nuevoEmail = prompt("Ingrese su nuevo email:");
-
-//     let nuevoTelefono = prompt("Ingrese su nuevo teléfono:");   
-
-//     if (nuevoNombre) {
-//         .textContent = nuevoNombre;
-//         perfilUsuario.n
-//         // function cargarPerfil() { 
-//         //     let perfilGuardado = JSON.parse(localStorage.getItem('perfilUsuario'));
-//         //     if (perfilGuardado) {
-//         //         fotoPerfil.src = perfilGuardado.fotoPerfil;
-//         //         nombrePerfil.textContent = perfilGuardado.nombrePerfil;
-//         //         emailPerfil.textContent = perfilGuardado.emailPerfil;
-//         //         telefonoPerfil.textContent = perfilGuardado.telefonoPerfil;
-//         //     }   
-//         // }
-
-//         // cargarPerfil();;
-//     }
-//     if (nuevoEmail) {
-//         emailPerfil.textContent = nuevoEmail;
-//         perfilUsuario.emailPerfil = nuevoEmail;
-//     }
-//     if (nuevoTelefono) {
-//         telefonoPerfil.textContent = nuevoTelefono;
-//         perfilUsuario.telefonoPerfil = nuevoTelefono;
-//     }
-//     localStorage.setItem('perfilUsuario', JSON.stringify(perfilUsuario));
-// }
-
+editarPerfil()
 
 
 function menutoggle() {
