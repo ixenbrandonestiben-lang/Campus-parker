@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>perfil</title>
     <link rel="stylesheet" href="perfil.css">
 </head>
+
 <body>
-<button onclick="menutoggle()" class="menu-toggle" id="menu-toggle">
-    ☰
-</button>
+    <button onclick="menutoggle()" class="menu-toggle" id="menu-toggle">
+        ☰
+    </button>
 
-<aside class="sidebar" id="sidebar">
-    <div class="logo">
-        <h1>CAMPUS <span>PARKING</span></h1>
-    </div>
-
-    <nav>
-        <a href="dashboard.html">Resumen del dia</a>
-        <a href="servicios.html">agregar vehiculo al parqueo</a>
-        <a href="perfil.html">perfil</a>
-        <a href="index.html">cerrar sesion</a>
-    </nav>
-</aside>
-
-    <main class="perfil">
-        <div id="Datos-perfil">
-
-            <button id="btn-editar" onclick= "editarPerfil()">Editar perfil</button>
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <h1>CAMPUS <span>PARKING</span></h1>
         </div>
-    </main>
+
+        <nav>
+            <a href="dashboard.html">Resumen del dia</a>
+            <a href="servicios.html">agregar vehiculo al parqueo</a>
+            <a href="perfil.html">perfil</a>
+            <a href="index.html">cerrar sesion</a>
+        </nav>
+    </aside> 
+
+    <!-- <dialog> -->
+        <div id="editarPerfil" class="perfilDialog">
+            <div class="ContenedorDialog">
+                <h1 class="titulo">EDITAR PERFIL</h1>
+                <div class="itemsPerfil">Nombre<strong id="pf-nombre"></strong></div>
+                <div class="itemsPerfil">Nombre<strong id="pf-correo"></strong></div>
+                <div class="itemsPerfil">Nombre<strong id="pf-telefono"></strong></div>
+                <button class="itemsPerfil" id="btn-editar" onclick="editarPerfil()">Editar perfil</button>
+            </div>
+        </div>
+
+        
+    <!-- </dialog> -->
+        
+
+
     <script src="perfil.js">
     </script>
 </body>
+
 </html>

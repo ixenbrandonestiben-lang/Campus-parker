@@ -123,7 +123,7 @@ function mostrarTicket(vehiculo, horasCobrar, horaSalida, totalPagar){
 }
 
 function agregarTicketLocalstorege() {
-    localStorage.setIt("mostrarTicket")
+    localStorage.setItem("mostrarTicket")
 }
 function imprimirTicket(){
     // document.getElementById("modal-ticket").closest();
