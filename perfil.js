@@ -1,3 +1,10 @@
+const datosPerfil = JSON.parse(localStorage.getItem('datos'))
+
+if (!localStorage.getItem("datos")) {
+    localStorage.setItem("datos", JSON.stringify(datosIniciales));
+}
+
+
 function cargarDoatosPerfil() {
 
     const datosPerfil = JSON.parse(localStorage.getItem('datos'))
@@ -5,39 +12,36 @@ function cargarDoatosPerfil() {
     document.getElementById("pf-nombre").textContent = datosPerfil.nombre;
     document.getElementById("pf-correo").textContent = datosPerfil.correo;
     document.getElementById("pf-telefono").textContent = datosPerfil.contacto;
-
+    document.getElementById("pf-contraseña").textContent = datosPerfil.contraseña;
+    
 }
 
 cargarDoatosPerfil()
 
 function editarPerfil() {
 
-    let nuevoNombre = prompt("Ingrese su nuevo nombre:", getElementById ("pf-nombre").textContent);
-    let nuevoEmail = prompt("Ingrese su nuevo email:",getElementById ("pf-correo").textContent);
-    let nuevoTelefono = prompt("Ingrese su nuevo teléfono:", getElementById("pf-telefono").textContent);
-
-    if (nuevoNombre !== null && nuevoEmail !== null && nuevoTelefono !== null)
+    let nuevoNombre = prompt("Ingrese su nuevo nombre:");
+    let nuevoEmail = prompt("Ingrese su nuevo email:");
+    let nuevacontraseña = prompt("ingrese su nueva contraseña...")
+    let nuevoTelefono = prompt("Ingrese su nuevo teléfono:");
 
     document.getElementById("pf-nombre").textContent = nuevoNombre
     document.getElementById("pf-correo").textContent = nuevoEmail
+    document.getElementById("pf-contraseña").textContent = nuevacontraseña
     document.getElementById("pf-telefono").textContent = nuevoTelefono
 
     const datosActualizados = {
-        nombre: nuevoNombre,
-        correo: nuevoEmail,
-        contacto: nuevoTelefono
+        nombre: nuevoNombre || datosPerfil.nombre,
+        correo: nuevoEmail || datosPerfil.correo,
+        contraseña:nuevacontraseña || datoscliente.contraseña,
+        contacto: nuevoTelefono || datoscliente.contacto
     }
 
-   
-}
-
-localStorage.setItem('datos', JSON.stringify(datosActualizados));
+    localStorage.setItem('datos', JSON.stringify(datosActualizados));
 
 alert("datos actualizados correctamente...")
-
-editarPerfil()
-
-
+}
+z
 function menutoggle() {
     const toggleBtn = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');

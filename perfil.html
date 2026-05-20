@@ -24,24 +24,28 @@
             <a href="perfil.html">perfil</a>
             <a href="index.html">cerrar sesion</a>
         </nav>
-    </aside> 
+    </aside>
 
-    <!-- <dialog> -->
-        <div id="editarPerfil" class="perfilDialog">
-            <div class="ContenedorDialog">
-                <h1 class="titulo">EDITAR PERFIL</h1>
-                <div class="itemsPerfil">Nombre: <strong id="pf-nombre"></strong></div>
-                <div class="itemsPerfil">Correo: <strong id="pf-correo"></strong></div>
-                <div class="itemsPerfil">Telefono: <strong id="pf-telefono"></strong></div>
-                <button class="itemsPerfil" id="btn-editar" onclick="editarPerfil()">Editar perfil</button>
-            </div>
+    <div id="editarPerfil" class="perfilDialog">
+        <div class="ContenedorDialog">
+            <h1 class="titulo">EDITAR PERFIL</h1>
+            <div class="itemsPerfil">Nombre: <strong id="pf-nombre"></strong></div>
+            <div class="itemsPerfil">Correo: <strong id="pf-correo"></strong></div>
+            <div class="itemsPerfil">Contraseña: <strong id="pf-contraseña"></strong></div>
+            <div class="itemsPerfil">Telefono: <strong id="pf-telefono"></strong></div>
+
+            <button class="itemsPerfil" id="btn-editar" onclick="editarPerfil()">Editar perfil</button>
+        </div>
+    </div>
+
+    <form id="formulario-para-editar-perfil" class="formulario-editar-perfil">
+        <h2>===Editar Perfil====</h2>
+
+        <div>
+            <label for=""></label>
         </div>
 
-        
-    <!-- </dialog> -->
-        
-
-
+    </form>
     <script src="perfil.js">
     </script>
 </body>

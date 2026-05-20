@@ -5,9 +5,6 @@ let datoscliente =
     "contraseña": "admin123...",
     "contacto": "4647-8945"
 }
-
-
-
 localStorage.setItem("datos", JSON.stringify(datoscliente))
 
 function inicioSesion(correIngresado, contraseñaIngresada) {
