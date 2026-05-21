@@ -1,13 +1,6 @@
-const datosPerfil = JSON.parse(localStorage.getItem('datos'))
+function cargarDatosPerfil() {
 
-if (!localStorage.getItem("datos")) {
-    localStorage.setItem("datos", JSON.stringify(datosIniciales));
-}
-
-
-function cargarDoatosPerfil() {
-
-    const datosPerfil = JSON.parse(localStorage.getItem('datos'))
+    const datosPerfil = JSON.parse(localStorage.getItem('datos')) || {};
 
     document.getElementById("pf-nombre").textContent = datosPerfil.nombre;
     document.getElementById("pf-correo").textContent = datosPerfil.correo;
@@ -16,10 +9,12 @@ function cargarDoatosPerfil() {
     
 }
 
-cargarDoatosPerfil()
+cargarDatosPerfil()
 
 function editarPerfil() {
 
+    const datosPerfil = JSON.parse(localStorage.getItem('datos')) || {};
+    
     let nuevoNombre = prompt("Ingrese su nuevo nombre:");
     let nuevoEmail = prompt("Ingrese su nuevo email:");
     let nuevacontraseña = prompt("ingrese su nueva contraseña...")
@@ -33,15 +28,17 @@ function editarPerfil() {
     const datosActualizados = {
         nombre: nuevoNombre || datosPerfil.nombre,
         correo: nuevoEmail || datosPerfil.correo,
-        contraseña:nuevacontraseña || datoscliente.contraseña,
-        contacto: nuevoTelefono || datoscliente.contacto
+        contraseña:nuevacontraseña || datosPerfil.contraseña,
+        contacto: nuevoTelefono || datosPerfil.contacto
     }
 
     localStorage.setItem('datos', JSON.stringify(datosActualizados));
 
+    cargarDatosPerfil();
+    
 alert("datos actualizados correctamente...")
 }
-z
+
 function menutoggle() {
     const toggleBtn = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
