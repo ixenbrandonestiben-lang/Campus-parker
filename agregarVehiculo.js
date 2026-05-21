@@ -1,7 +1,6 @@
 let parqueados = JSON.parse(localStorage.getItem("parqueados")) || []
 const seleccionarOpcion = document.getElementById("tipo")
 const tabla = document.getElementById("tabla-servicios")
-const salir = document.getElementById("logout")
 
 function agregarVehiculo() {
 
@@ -213,4 +212,34 @@ document.querySelectorAll('#sidebar nav a').forEach(link => {
     });
 });
 }
+function fechaActual() {
+    const fechaActual = prompt("ingrese la fecha de salida del vehiculo: ")
+    return fechaActual
+
+}
+// funcion para mostrar el servicio brindado, registrando Placa del vehículo, tipo de vehículo, número de horas de parqueo acumuladas y valor total del servicio para el vehículo.
+
+const tablaServiciosBrindados = document.getElementById("tabla-servicios-brindados")
+
+function mostrarTablaServisios() {
+
+    tablaServiciosBrindados.innerHTML = ""
+    parqueados.forEach((vehiculo, index) => {
+
+        tablaServiciosBrindados.innerHTML += `
+    <tr>
+        <td>${index + 1}</td>
+        <td>${vehiculo.placa}</td>
+        <td>${vehiculo.tipo}</td>
+        <td>${vehiculo.fecha}</td>
+        <td>${vehiculo.horaingresada}</td>
+        <td>${horasCobrar()}</td>
+        <td>${totalPagar()}</td>
+        </tr>
+    `;
+    })
+    document.appendChild(tablaServiciosBrindados)       
+}
+
+mostrarTablaServisios()
 
