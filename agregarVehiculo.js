@@ -127,12 +127,7 @@ function agregarTicketLocalstorege() {
 }
 function imprimirTicket(){
     // document.getElementById("modal-ticket").closest();
-    alert("Enviando factura a impresion...");
-    window.print();
-
-    const modal = document.getElementById("modal-ticket")
-    modal.closest();
-
+    alert("Enviando factura a impresiodashboard.html:11 Uncaught ReferenceError: menutoggle is not defineted")
 }
 
 function cerrarTicket() {

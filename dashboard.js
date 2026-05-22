@@ -37,3 +37,4 @@ document.querySelectorAll('#sidebar nav a').forEach(link => {
 });
 }
 
+menutoggle();
