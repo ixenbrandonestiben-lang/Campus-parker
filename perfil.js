@@ -32,6 +32,7 @@ function editarPerfil() {
         contacto: nuevoTelefono || datosPerfil.contacto
     }
 
+    datosPerfil.push(datosActualizados);
     localStorage.setItem('datos', JSON.stringify(datosActualizados));
 
     cargarDatosPerfil();

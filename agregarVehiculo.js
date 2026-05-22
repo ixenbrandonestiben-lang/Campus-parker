@@ -212,6 +212,15 @@ function fechaActual() {
     return fechaActual
 
 }
+
+
+function registrarVehiculosRetirados(){
+    let parqueados = JSON.parse(localStorage.getItem("parqueados")) || []
+    parqueados.forEach((vehiculo, index, tipo, fecha, hora)=>{
+
+        
+    })
+}
 // funcion para mostrar el servicio brindado, registrando Placa del vehículo, tipo de vehículo, número de horas de parqueo acumuladas y valor total del servicio para el vehículo.
 
 const tablaServiciosBrindados = document.getElementById("tabla-servicios-brindados")

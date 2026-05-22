@@ -9,22 +9,22 @@
 </head>
 
 <body>
-<button onclick="menutoggle()" class="menu-toggle" id="menu-toggle">
-    ☰
-</button>
+    <button onclick="menutoggle()" class="menu-toggle" id="menu-toggle">
+        ☰
+    </button>
 
-<aside class="sidebar" id="sidebar">
-    <div class="logo">
-        <h1>CAMPUS <span>PARKING</span></h1>
-    </div>
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <h1>CAMPUS <span>PARKING</span></h1>
+        </div>
 
-    <nav>
-        <a href="dashboard.html">Resumen del dia</a>
-        <a href="servicios.html">agregar vehiculo al parqueo</a>
-        <a href="perfil.html">perfil</a>
-        <a href="index.html">cerrar sesion</a>
-    </nav>
-</aside>
+        <nav>
+            <a href="dashboard.html">Resumen del dia</a>
+            <a href="servicios.html">agregar vehiculo al parqueo</a>
+            <a href="perfil.html">perfil</a>
+            <a href="index.html">cerrar sesion</a>
+        </nav>
+    </aside>
 
 
     <section class="servicios">
@@ -75,26 +75,26 @@
         </div>
 
     </section>
-    
-        <table>
-            <thead>
-                <h2>vista servicios prestados</h2>
-                <tr>
-                    <th>numero entrada</th>
-                    <th>Placa</th>
-                    <th>Tipo</th>
-                    <th>fecha entrada</th>
-                    <th>fecha salida</th>
-                    <th>total</th>
 
-                </tr>
-            </thead>
-            <tbody id="tabla-servicios-brindados">
+    <table>
+        <thead>
+            <h2>vista servicios prestados</h2>
+            <tr>
+                <th>numero entrada.</th>
+                <th>Placa del vehiculo.</th>
+                <th>Tipo de vehiculo.</th>
+                <th>fecha entrada.</th>
+                <th>fecha salida.</th>
+                <th>horas parqueadas.</th>
+                <th>total pagado.</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-servicios-brindados">
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
-<script src="dashboard.js"></script>
+    <script src="dashboard.js"></script>
 
 
     <dialog id="modal-ticket"
